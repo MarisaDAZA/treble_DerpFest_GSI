@@ -12,7 +12,7 @@ for project in $(cd $patches/patches/$tree; echo *); do
     [ "$p" == vendor/hardware/overlay ] && p=vendor/hardware_overlay
     pushd $p &>/dev/null
     for patch in $patches/patches/$tree/$project/*.patch; do
-        git am $patch || exit
+        git am $patch || { echo -e "\e[31mFailed to apply patch: $patch\e[0m"; exit; }
     done
     popd &>/dev/null
 done
