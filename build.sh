@@ -34,12 +34,12 @@ syncRepos() {
 }
 
 applyPatches() {
-    echo "--> Applying trebledroid patches"
-    bash $BL/apply-patches.sh $BL trebledroid
-    echo
-
     echo "--> Applying pre patches"
     bash $BL/apply-patches.sh $BL pre
+    echo
+
+    echo "--> Applying trebledroid patches"
+    bash $BL/apply-patches.sh $BL trebledroid
     echo
 
     echo "--> Applying misc patches"
