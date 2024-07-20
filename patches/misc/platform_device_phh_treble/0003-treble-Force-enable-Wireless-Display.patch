@@ -1,4 +1,4 @@
-From 888f46b04e70015afba39c8cc7ae3dd8291a986f Mon Sep 17 00:00:00 2001
+From 37a03619a179d9146a7eb4470fd9219f3df60558 Mon Sep 17 00:00:00 2001
 From: KoysX <2685697179b@gmail.com>
 Date: Tue, 5 Sep 2023 08:12:33 +0800
 Subject: [PATCH] treble-Force-enable-Wireless-Display
@@ -8,13 +8,13 @@ Subject: [PATCH] treble-Force-enable-Wireless-Display
  1 file changed, 3 insertions(+)
 
 diff --git a/system.prop b/system.prop
-index 986cb09..5fe3d9e 100644
+index f3c0c45..9dde202 100644
 --- a/system.prop
 +++ b/system.prop
-@@ -53,3 +53,6 @@ vendor.usb.use_ffs_mtp=1
- # Override media volume steps
- ro.config.media_vol_steps=25
- ro.config.media_vol_default=8
+@@ -49,3 +49,6 @@ bluetooth.profile.sap.server.enabled?=true
+ 
+ # Samsung vendors default to a Samsung-specific gadget for MTP. Set this to use AOSP's functionfs MTP
+ vendor.usb.use_ffs_mtp=1
 +
 +# Wireless Display
 +persist.debug.wfd.enable=1
