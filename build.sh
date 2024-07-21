@@ -82,7 +82,7 @@ buildGappsVariant() {
 generatePackages() {
     echo "--> Generating packages"
     buildDate="$(date +%Y%m%d)"
-    xz -cv $BD/system-treble_arm64_bgN.img -T0 > $BD/DerpFest-arm64_bgN-13.0-unofficial-$buildDate.img.xz
+    xz -cv $BD/system-treble_arm64_bvN.img -T0 > $BD/DerpFest-arm64_bvN-13.0-unofficial-$buildDate.img.xz
     rm -rf $BD/system-*.img
     echo
 }
@@ -123,7 +123,7 @@ buildGappsVariant
 buildMiniVariant
 buildPicoVariant
 generatePackages
-generateOta
+#generateOta
 
 END=$(date +%s)
 ELAPSEDM=$(($(($END-$START))/60))
