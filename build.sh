@@ -56,7 +56,7 @@ applyPatches() {
 
 setupEnv() {
     echo "--> Setting up build environment"
-    source build/envsetup.sh &>/dev/null
+    source build/envsetup.sh
     mkdir -p $BD
     echo
 }
@@ -79,30 +79,10 @@ buildGappsVariant() {
     echo
 }
 
-buildMiniVariant() {
-    echo "--> Building treble_arm64_bgN-mini"
-    lunch treble_arm64_bgN_mini-userdebug
-    make -j$(nproc --all) installclean
-    make -j$(nproc --all) systemimage
-    mv $OUT/system.img $BD/system-treble_arm64_bgN-mini.img
-    echo
-}
-
-buildPicoVariant() {
-    echo "--> Building treble_arm64_bgN-pico"
-    lunch treble_arm64_bgN_pico-userdebug
-    make -j$(nproc --all) installclean
-    make -j$(nproc --all) systemimage
-    mv $OUT/system.img $BD/system-treble_arm64_bgN-pico.img
-    echo
-}
-
 generatePackages() {
     echo "--> Generating packages"
     buildDate="$(date +%Y%m%d)"
     xz -cv $BD/system-treble_arm64_bgN.img -T0 > $BD/DerpFest-arm64_bgN-13.0-unofficial-$buildDate.img.xz
-    xz -cv $BD/system-treble_arm64_bgN-mini.img -T0 > $BD/DerpFest-arm64_bgN-mini-13.0-unofficial-$buildDate.img.xz
-    xz -cv $BD/system-treble_arm64_bgN-pico.img -T0 > $BD/DerpFest-arm64_bgN-pico-13.0-unofficial-$buildDate.img.xz
     rm -rf $BD/system-*.img
     echo
 }
