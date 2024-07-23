@@ -14,5 +14,5 @@ for project in $(cd $patches/patches/$tree; echo *); do
     for patch in $patches/patches/$tree/$project/*.patch; do
         git am $patch || { echo -e "\e[31mFailed to apply patch: $patch\e[0m"; exit; }
     done
-    popd &>/dev/null
+    popd
 done
